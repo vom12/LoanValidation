@@ -1,6 +1,9 @@
 ﻿using System;
 using System.IO;
 using Microsoft.Extensions.Configuration;
+using Microsoft.IdentityModel.Tokens;
+using System.IdentityModel.Tokens.Jwt;
+using LoanValidation.Domain.Models;
 
 namespace LoanValidation.Services.Config
 {
@@ -31,5 +34,6 @@ namespace LoanValidation.Services.Config
         string logFolder = "logs";
         public string LogFilePath => Path.Combine(rootPath, logFolder, "app.log");
         public string LogLevel => _config["Logging:LogLevel:Default"];
+        public JwtSettings JwtSettings => _config.GetSection("JwtSettings").Get<JwtSettings>();
     }
 }

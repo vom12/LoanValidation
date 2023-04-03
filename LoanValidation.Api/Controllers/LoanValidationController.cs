@@ -1,5 +1,6 @@
 ﻿using LoanValidation.Domain.Models;
 using LoanValidation.Services.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -20,6 +21,7 @@ namespace LoanValidation.Api.Controllers
             _errorHandlingService = errorHandlingService;
         }
 
+        [Authorize]
         [HttpPost]
         public async Task<IActionResult> Post([FromBody] Lead lead)
         {

@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using LoanValidation.Domain.Models;
 
 namespace LoanValidation.Services.Config
 {
@@ -16,5 +14,6 @@ namespace LoanValidation.Services.Config
         public int MaxTimeTrading { get; }
         public int CacheExpirationMinutes { get; }
         public string LogFilePath { get; }
+        public JwtSettings JwtSettings { get; }
     }
 }
